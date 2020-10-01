@@ -6,6 +6,7 @@ class CreateEvents < ActiveRecord::Migration[6.0]
       t.string :event_location
       t.datetime :event_date
       t.timestamps
+      t.references :creator
     end
   end
 end
