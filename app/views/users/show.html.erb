@@ -1,1 +1,7 @@
-<h1>Hey Hey!</h1>
+<% if user_signed_in? %>
+<h1>Hey Hey! You are <%= current_user.first_name %> </h1>
+<%= link_to  "Log Out", destroy_user_session_path, method: :delete %>
+<% else %>
+
+<h1> Log In to see your events: <%= link_to  "Log In", new_user_session_path %> </h1>
+<% end %>
