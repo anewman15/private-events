@@ -11,6 +11,7 @@
 
   <tbody>
     <% @events.each do |event| %>
+    <p> <%= event.description %> </p>
       <tr>
         <td><%= link_to 'Show', event %></td>
         <td><%= link_to 'Edit', edit_event_path(event) %></td>
