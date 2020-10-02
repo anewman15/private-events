@@ -4,6 +4,6 @@ Rails.application.routes.draw do
   resources :events
   
   devise_scope :user do
-    root 'users/registrations#new'
+    root 'events#index'
   end
 end

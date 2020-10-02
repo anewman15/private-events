@@ -1,6 +1,6 @@
 <% if user_signed_in? %>
   <p class="control">
-    <span><%= "#{current_user.first_name} #{current_user.last_name}" %></span>
+    <%= link_to "My Events", user_path(current_user.id), class: "has-text-white has-text-weight-bold is-vcentered" %>
   </p>
   <p class="control">
     <%= link_to  "Logout", destroy_user_session_path, method: :delete, class: "button is-primary" %>
