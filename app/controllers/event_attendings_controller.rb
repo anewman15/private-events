@@ -7,7 +7,7 @@ class EventAttendingsController < ApplicationController
 
     respond_to do |format|
       if @event_attending.save
-        format.html { redirect_to event_path, notice: 'You decided to attend this event.' }
+        format.html { redirect_to event_path(params[:attended_event_id]), notice: 'You decided to attend this event.' }
         format.json { render :show, status: :created, location: @event }
       else
         format.html { redirect_to new_user_session_path, @event_attending.errors, notice: 'You need to login' }
