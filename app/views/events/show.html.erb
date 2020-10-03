@@ -1,5 +1,10 @@
 <p id="notice"><%= notice %></p>
-Hi
+<p> <%= "Event Creator: #{@event.creator.first_name} #{@event.creator.last_name}" %> </p>
+<p> <%= @event.description %> </p>
+<%= form_with(url: "/event_attendings", method: "post") do |f| %>
+  <%= f.hidden_field :attended_event_id, value: @event.id %>
+  <%= f.submit "Attend this event" %>
+<% end %>
 <table>
   <thead>
     <tr>
@@ -9,11 +14,11 @@ Hi
 
   <tbody>
     <% @event_attendees.each do |attendee| %>
-    <p> Hi, <%= attendee.first_name %> </p>
+    <p> <%= "#{attendee.first_name} #{attendee.last_name}" %> </p>
       <tr>
-        <td><%= link_to 'Show', event %></td>
-        <td><%= link_to 'Edit', edit_event_path(event) %></td>
-        <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', @event %></td>
+        <td><%= link_to 'Edit', edit_event_path(@event) %></td>
+        <td><%= link_to 'Destroy', @event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
