@@ -18,6 +18,16 @@
             <br>
             <strong>Event Description:</strong>
             <div class="content"> <%= @event.description %> </div>
+            <br>
+            <h4 class="ttile is-5"> Attendees </h4>
+            <strong class="ttile is-6"> <%= "#{@event_attendees.count} people are attending this event"%> </strong>
+            <div class="content">
+              <ol>
+                <% @event_attendees.each do | attendee | %>
+                  <li><%= "#{attendee.first_name} #{attendee.last_name}" %></li>
+                <% end %>
+              </ol>
+            </div>
             <br><br>
             <%= form_with(url: "/event_attendings", method: "post") do |f| %>
               <%= f.hidden_field :attended_event_id, value: @event.id %>
