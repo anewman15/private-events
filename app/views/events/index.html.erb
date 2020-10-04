@@ -1,7 +1,6 @@
 <div class="columns is-centered">
   <div class="column is-8">
     <%= render 'events/form'%>
-
     <h1 class="title is-3 has-text-centered">Events Feed</h1>
     <% @events.each do |event| %>
       <div class="box">
@@ -14,7 +13,7 @@
               <strong><%="#{event.event_date.strftime('%B %d, %Y')}" %></strong><br>
               <span>Location: </span>
               <strong><%= event.event_location %></strong><br><br>
-              <%= link_to 'See event details', event_path(event) %>
+              <%= link_to 'See event details', event_path(event), class: "has-text-weight-semibold" %>
             </div>
           </div>
         </article>
