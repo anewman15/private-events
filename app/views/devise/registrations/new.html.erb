@@ -1,34 +1,76 @@
-<h2>Sign up</h2>
+<div class="section">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-half">
+        <h2 class="title is-2">Sign Up</h2>
+        <%= simple_form_for(resource, as: resource_name, url: user_registration_path) do |f| %>
+          <%= f.error_notification %>
 
-<%= simple_form_for(resource, as: resource_name, url: user_registration_path) do |f| %>
-  <%= f.error_notification %>
-
-  <div class="form-inputs">
-    <%= f.input :first_name,
-                required: true,
-                autofocus: true,
-                input_html: { autocomplete: "first_name" }%>
-    <%= f.input :last_name,
-                required: true,
-                input_html: { autocomplete: "last_name" }%>
-    <%= f.input :username,
-                required: true,
-                input_html: { autocomplete: "username" }%>
-    <%= f.input :email,
-                required: true,
-                input_html: { autocomplete: "email" }%>
-    <%= f.input :password,
-                required: true,
-                hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :password_confirmation,
-                required: true,
-                input_html: { autocomplete: "new-password" } %>
+          <div class="field">
+            <div class="control">
+              <%= f.input :first_name,
+                          required: true,
+                          autofocus: true,
+                          wrapper: false,
+                          input_html: { class: "input" }
+              %>
+            </div>
+          </div>
+          <div class="field">
+            <div class="control">
+              <%= f.input :last_name,
+                          required: true,
+                          wrapper: false,
+                          input_html: { class: "input" }
+              %>
+            </div>
+          </div>
+          <div class="field">
+            <div class="control">
+              <%= f.input :username,
+                          required: true,
+                          wrapper: false,
+                          input_html: { class: "input" }
+              %>
+            </div>
+          </div>
+          <div class="field">
+            <div class="control">
+              <%= f.input :email,
+                          required: true,
+                          wrapper: false,
+                          input_html: { class: "input" }
+              %>
+            </div>
+          </div>
+          <div class="field">
+            <div class="control">
+              <%= f.input :password,
+                          required: true,
+                          hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+                          wrapper: false,
+                          input_html: { class: "input" }
+              %>
+            </div>
+          </div>
+          <div class="field">
+            <div class="control">
+              <%= f.input :password_confirmation,
+                          required: true,
+                          wrapper: false,
+                          input_html: { class: "input" }
+              %>
+            </div>
+          </div>
+          <div class="field">
+            <div class="control">
+              <%= f.button :submit, "Sign up", class: "button is-primary" %>
+            </div>
+          </div>
+        <% end %>
+        <br>
+        <%= render "devise/shared/links" %>
+      </div>
+    </div>
   </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>
