@@ -13,7 +13,7 @@
               <strong><%="#{event.event_date.strftime('%B %d, %Y')}" %></strong><br>
               <span>Location: </span>
               <strong><%= event.event_location %></strong><br><br>
-              <%= link_to 'See event details', event_path(event), class: "has-text-weight-semibold" %>
+              <%= link_to 'See event details', event_path(event), class: "button is-info is-inverted" %>
             </div>
           </div>
         </article>
