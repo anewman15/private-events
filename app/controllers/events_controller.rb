@@ -5,6 +5,7 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.json
   def index
+    @event = Event.new
     @events = Event.all
   end
 
