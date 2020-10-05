@@ -2,7 +2,6 @@
 <article class="media box">
   <div class="media-content">
     <%= simple_form_for(@event) do |f| %>
-      <%= f.error_notification %>
       <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
       <div class="field">
@@ -12,7 +11,8 @@
                       input_html: { class: "input" },
                       wrapper: false,
                       label_html: { class: "label" },
-                      autofocus: true
+                      autofocus: true,
+                      error: "Event name is required"
           %>
         </div>
       </div>
