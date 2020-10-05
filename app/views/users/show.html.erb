@@ -2,7 +2,7 @@
 <h1 class="title is-3 has-text-centered">Your Events</h1>
 <div class="container is-fluid">
   <div class="columns is-centered">
-    <div class="column is-half">
+    <div class="column is-5">
       <h1 class="title is-4 has-text-centered">Events You've Created</h1>
       <% @user_events.each do |event| %>
         <div class="box">
@@ -24,7 +24,7 @@
       <% end %>
     </div>
 
-    <div class="column is-half">
+    <div class="column is-5">
       <h1 class="title is-4 has-text-centered">Attending/Attended Events</h1>
       <% @user_attended_events.each do |event| %>
         <div class="box">
