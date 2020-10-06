@@ -1,3 +1,8 @@
 <%= form_with(url: "/event_attendings", method: "post") do |f| %>
-  <%= f.submit "Attend this event" %>
+  <%= f.hidden_field :attended_event_id, value: @event.id %>
+  <div class="custom-start">
+    <%= attend_event_button(f) %>
+    <%= link_to 'Go to Main Feed', events_path, class: "button is-info is-inverted mr-5" %>
+    <%= my_events_button(user_path) %>
+  </div>
 <% end %>

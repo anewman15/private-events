@@ -11,10 +11,11 @@
   </head>
 
   <body class="has-navbar-fixed-top">
-    <%= render 'layouts/navbar'%>
-    <%= render 'layouts/flash_notice'%>
-
-    <%= yield %>
+    <div class="container is-fluid">
+      <%= render 'layouts/navbar'%>
+      <%= render 'layouts/flash_notice'%>
+      <%= yield %>
+    </div>    
   </body>
 </html>
 

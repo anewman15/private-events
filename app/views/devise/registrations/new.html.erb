@@ -47,7 +47,7 @@
             <div class="control">
               <%= f.input :password,
                           required: true,
-                          hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+                          hint: (minimum_chars_hint(@minimum_password_length)),
                           wrapper: false,
                           input_html: { class: "input" }
               %>

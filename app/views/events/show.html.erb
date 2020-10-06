@@ -20,23 +20,16 @@
             <div class="content"> <%= @event.description %> </div>
             <br>
             <h4 class="ttile is-5"> Attendees </h4>
-            <strong class="ttile is-6"> <%= "#{@event_attendees.count} people are attending this event"%> </strong>
+            <strong class="ttile is-6"> <%= "#{@event.attendees.count} people are attending this event"%> </strong>
             <div class="content">
               <ol>
-                <% @event_attendees.each do | attendee | %>
+                <% @event.attendees.each do | attendee | %>
                   <li><%= "#{attendee.first_name} #{attendee.last_name}" %></li>
                 <% end %>
               </ol>
             </div>
             <br><br>
-            <%= form_with(url: "/event_attendings", method: "post") do |f| %>
-              <%= f.hidden_field :attended_event_id, value: @event.id %>
-              <div class="custom-start">
-                <%= attend_event_button(f) %>
-                <%= link_to 'Go to Main Feed', events_path, class: "button is-info is-inverted mr-5" %>
-                <%= my_events_button(user_path) %>
-              </div>
-            <% end %>
+            <%= render 'event_attendings/form'%>
           </div>
         </div>
       </article>
