@@ -8,4 +8,10 @@ RSpec.describe Event, type: :model do
     it { should validate_presence_of(:event_location) }
     it { should validate_presence_of(:event_date) }
   end
+
+  describe 'associations' do
+    it { should belong_to(:creator) }
+    it { should have_many(:event_attendings) }
+    it { should have_many(:attendees) }
+  end
 end
