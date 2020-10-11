@@ -6,8 +6,8 @@ class EventsController < ApplicationController
   # GET /events.json
   def index
     @event = Event.new
-    @upcoming_events = Event.upcoming_events
-    @past_events = Event.past_events
+    @upcoming_events = Event.upcoming_events.order('created_at DESC')
+    @past_events = Event.past_events.order('created_at DESC')
   end
 
   # GET /events/1
