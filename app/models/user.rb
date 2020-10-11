@@ -6,7 +6,7 @@ class User < ApplicationRecord
 
   validates :first_name, presence: true, length: { maximum: 40 }
   validates :last_name, presence: true, length: { maximum: 40 }
-  validates :username, presence: true, length: { maximum: 40 }
+  validates :username, presence: true, length: { maximum: 40 }, uniqueness: true
 
   has_many :event_attendings, foreign_key: :event_attendee_id
   has_many :attended_events, through: :event_attendings
