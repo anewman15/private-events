@@ -11,26 +11,29 @@
 <div class="container is-fluid columns is-centered">
   <div class="column is-half">
     <h1 class="title is-5 has-text-centered">Upcoming</h1>
-    <% @upcoming_events.each do |event| %>
-      <div class="box">
-        <article class="media">
-          <div class="media-content">
-            <div class="content">
-              <h1 class="title is-5"><%= "#{event.creator.first_name} #{event.creator.last_name} is hosting an event:" %></h1>
-              <strong><%= "#{event.event_name}" %></strong>
-              <span>on</span>
-              <strong><%="#{event.event_date.strftime('%B %d, %Y')}" %></strong><br>
-              <span>Location: </span>
-              <strong><%= event.event_location %></strong><br><br>
-              <%= link_to 'See event details', event_path(event), class: "button is-info is-inverted" %>
+    <% if @upcoming_events %>
+      <% @upcoming_events.each do |event| %>
+        <div class="box">
+          <article class="media">
+            <div class="media-content">
+              <div class="content">
+                <h1 class="title is-5"><%= "#{event.creator.first_name} #{event.creator.last_name} is hosting an event:" %></h1>
+                <strong><%= "#{event.event_name}" %></strong>
+                <span>on</span>
+                <strong><%="#{event.event_date.strftime('%B %d, %Y')}" %></strong><br>
+                <span>Location: </span>
+                <strong><%= event.event_location %></strong><br><br>
+                <%= link_to 'See event details', event_path(event), class: "button is-info is-inverted" %>
+              </div>
             </div>
-          </div>
-        </article>
-      </div>
+          </article>
+        </div>
+      <% end %>
     <% end %>
   </div>
   <div class="column is-half">
     <h1 class="title is-5 has-text-centered">Past Events</h1>
+    <% if @past_events %>
     <% @past_events.each do |event| %>
       <div class="box">
         <article class="media">
@@ -47,6 +50,7 @@
           </div>
         </article>
       </div>
+    <% end %>
     <% end %>
   </div>
 </div>
