@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, except: [:index, :show]
+  before_action :authenticate_user!, except: [:index, :show, :new]
 
   # GET /events
   # GET /events.json
@@ -20,6 +20,7 @@ class EventsController < ApplicationController
   # GET /events/new
   def new
     @event = Event.new
+    redirect_to root_path
   end
 
   # GET /events/1/edit
@@ -30,13 +31,15 @@ class EventsController < ApplicationController
   # POST /events.json
   def create
     @event = current_user.created_events.build(event_params)
-
+    @upcoming_events = Event.upcoming_events.order('created_at DESC')
+    @past_events = Event.past_events.order('created_at DESC')
+    
     respond_to do |format|
       if @event.save
-        format.html { redirect_to @event, notice: 'Event was successfully created.' }
+        format.html { redirect_to event_path, notice: 'Event was successfully created.' }
         format.json { render :show, status: :created, location: @event }
       else
-        format.html { redirect_to root_path, alert: 'Event was not created. Please try again!' }
+        format.html { render :index, alert: 'Event was not created. Please try again!' }
         format.json { render json: @event.errors, status: :unprocessable_entity }
       end
     end
