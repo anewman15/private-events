@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe EventsController, type: :controller do
-  
   describe 'GET #new' do
     it 'redirects to root path' do
       get :new
@@ -36,7 +35,7 @@ RSpec.describe EventsController, type: :controller do
     context 'if user is not signed in' do
       context 'and has invalid params' do
         it 'when only event name is present, redirects to user sign in page' do
-          post :create, params: { event: { event_name: "Some Event Name" } }
+          post :create, params: { event: { event_name: 'Some Event Name' } }
           expect(response).to redirect_to(new_user_session_path)
           expect(response).to have_http_status(302)
           expect(flash[:alert]).to be_present
@@ -45,7 +44,7 @@ RSpec.describe EventsController, type: :controller do
 
       context 'and has valid params' do
         it 'redirects to user sign in page' do
-          post :create, params: { event: { creator_id: 1, event_name: "Some Event Name", description: "Some Event Description", event_location: "Some Event Location", event_date: Time.now } }
+          post :create, params: { event: { creator_id: 1, event_name: 'Some Event Name', description: 'Some Event Description', event_location: 'Some Event Location', event_date: Time.now } }
           expect(response).to redirect_to(new_user_session_path)
           expect(response).to have_http_status(302)
           expect(flash[:alert]).to be_present
@@ -56,7 +55,7 @@ RSpec.describe EventsController, type: :controller do
     context 'if user is signed in' do
       context 'and has valid parameters' do
         it 'redirects to event page' do
-          post :create, params: { event: { creator_id: 1, event_name: "Some Event Name", description: "Some Event Description", event_location: "Some Event Location", event_date: Time.now } }
+          post :create, params: { event: { creator_id: 1, event_name: 'Some Event Name', description: 'Some Event Description', event_location: 'Some Event Location', event_date: Time.now } }
           expect(response).to redirect_to(new_user_session_path)
           expect(response).to have_http_status(302)
         end

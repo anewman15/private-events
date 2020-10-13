@@ -1,13 +1,13 @@
+# EventAttendings Controller
 class EventAttendingsController < ApplicationController
   before_action :authenticate_user!
 
   def create
-    # byebug
     attended_event = Event.find(params[:attended_event_id])
-    if (attended_event.event_date - Time.now)/3600.round > 0
+    if ((attended_event.event_date - Time.now) / 3600.round).positive?
       @event_attending = EventAttending.new(event_attendee_id: current_user.id, attended_event_id: params[:attended_event_id])
     else
-      flash[:alert] = "You cannot attend a past event"
+      flash[:alert] = 'You cannot attend a past event'
       redirect_to event_path(params[:attended_event_id])
       return
     end

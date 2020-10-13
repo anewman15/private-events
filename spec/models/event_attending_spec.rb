@@ -8,7 +8,7 @@ RSpec.describe EventAttending, type: :model do
     it { should validate_uniqueness_of(:event_attendee_id) }
   end
 
-  describe 'associaitons' do 
+  describe 'associaitons' do
     it { should belong_to(:attended_event) }
     it { should belong_to(:event_attendee) }
   end

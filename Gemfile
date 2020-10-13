@@ -31,33 +31,32 @@ gem 'bootsnap', '>= 1.4.2', require: false
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
+  gem 'factory_bot_rails'
+  gem 'guard'
+  gem 'guard-rspec'
+  gem 'rails-controller-testing'
   gem 'rspec-rails'
   gem 'spring'
   gem 'spring-commands-rspec'
   gem 'spring-watcher-listen', '~> 2.0.0'
-  gem 'guard'
-  gem 'guard-rspec'
-  gem 'factory_bot_rails'
-  gem 'rails-controller-testing'
 end
 
 group :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
+  gem 'guard-livereload', '~> 2.5', require: false
   gem 'listen', '~> 3.2'
   gem 'web-console', '>= 3.3.0'
-  gem 'guard-livereload', '~> 2.5', require: false
 end
 
 group :test do
   # Adds support for Capybara system testing and selenium driver
-  gem 'faker'
   gem 'capybara'
-  gem 'guard-rspec'
+  gem 'faker'
   gem 'launchy'
   gem 'selenium-webdriver'
   # Easy installation and use of web drivers to run system tests with browsers
-  gem 'webdrivers'
   gem 'shoulda-matchers'
+  gem 'webdrivers'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

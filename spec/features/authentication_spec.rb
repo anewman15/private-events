@@ -10,7 +10,7 @@ feature 'user authentication features', type: :feature do
     before(:each) do
       visit new_user_url
     end
-    
+
     scenario 'invalid params' do
       fill_in 'user_first_name', with: 'Abdullah'
       click_on 'Sign up'
@@ -27,7 +27,7 @@ feature 'user authentication features', type: :feature do
       fill_in 'user_password_confirmation', with: '12345678'
       click_on 'Sign up'
       expect(current_path).to eq("/users/#{User.find_by(user_username).id}")
-      expect(page).to have_content("Welcome, Abdullah Numan")      
+      expect(page).to have_content('Welcome, Abdullah Numan')
     end
   end
 end

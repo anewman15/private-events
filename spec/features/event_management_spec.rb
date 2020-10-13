@@ -21,10 +21,10 @@ feature 'event management features', type: :feature do
       fill_in 'event_event_date_3i', with: 12
       fill_in 'event_event_date_4i', with: 12
       fill_in 'event_event_date_5i', with: 21
-      fill_in 'event-description', with: "Some awesome event description"
+      fill_in 'event-description', with: 'Some awesome event description'
       click_on 'Create Event'
       expect(current_page).to eq(events_path)
-      expect(page).to have_content("An Event Name")
+      expect(page).to have_content('An Event Name')
     end
   end
 end
