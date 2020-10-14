@@ -5,42 +5,41 @@
         <h2 class="title is-2">Sign Up</h2>
         <%= simple_form_for(resource, as: resource_name, url: user_registration_path) do |f| %>
           <%= f.error_notification %>
-
           <div class="field">
             <div class="control">
               <%= f.input :first_name,
                           required: true,
                           autofocus: true,
+                          input_html: { class: "input" },
                           wrapper: false,
-                          input_html: { class: "input" }
-              %>
+                          label_html: { class: "label"} %>
             </div>
           </div>
           <div class="field">
             <div class="control">
               <%= f.input :last_name,
                           required: true,
+                          input_html: { class: "input" },
                           wrapper: false,
-                          input_html: { class: "input" }
-              %>
+                          label_html: { class: "label"} %>
             </div>
           </div>
           <div class="field">
             <div class="control">
               <%= f.input :username,
                           required: true,
+                          input_html: { class: "input" },
                           wrapper: false,
-                          input_html: { class: "input" }
-              %>
+                          label_html: { class: "label"} %>
             </div>
           </div>
           <div class="field">
             <div class="control">
               <%= f.input :email,
                           required: true,
+                          input_html: { class: "input" },
                           wrapper: false,
-                          input_html: { class: "input" }
-              %>
+                          label_html: { class: "label"} %>
             </div>
           </div>
           <div class="field">
@@ -48,18 +47,18 @@
               <%= f.input :password,
                           required: true,
                           hint: (minimum_chars_hint(@minimum_password_length)),
+                          input_html: { class: "input" },
                           wrapper: false,
-                          input_html: { class: "input" }
-              %>
+                          label_html: { class: "label"} %>
             </div>
           </div>
           <div class="field">
             <div class="control">
               <%= f.input :password_confirmation,
                           required: true,
+                          input_html: { class: "input" },
                           wrapper: false,
-                          input_html: { class: "input" }
-              %>
+                          label_html: { class: "label"} %>
             </div>
           </div>
           <div class="field">
