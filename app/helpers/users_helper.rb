@@ -8,6 +8,8 @@ module UsersHelper
   end
 
   def wait_email_confirmation
-    content_tag(:p, "Currently waiting confirmation for: #{resource.unconfirmed_email}") if devise_mapping.confirmable? && resource.pending_reconfirmation?
+    return unless devise_mapping.confirmable? && resource.pending_reconfirmation?
+
+    content_tag(:p, "Currently waiting confirmation for: #{resource.unconfirmed_email}")
   end
 end

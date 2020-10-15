@@ -79,7 +79,7 @@ RSpec.configure do |config|
     conf.include Devise::Test::ControllerHelpers, type: :view
   end
 
-  RSpec.configure do |config|
-    config.include Warden::Test::Helpers
+  RSpec.configure do |conf|
+    conf.include Warden::Test::Helpers
   end
 end

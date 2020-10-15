@@ -31,6 +31,7 @@ feature 'event management features', type: :feature do
     fill_in 'user_password_confirmation', with: '12345678'
     click_on 'Sign up'
   end
+
   def create_event
     fill_in 'event_event_name', with: 'An Event Name'
     fill_in 'event_event_location', with: 'Chandina'

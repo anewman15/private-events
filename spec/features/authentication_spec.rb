@@ -3,16 +3,16 @@ require 'rails_helper'
 feature 'user authentication features', type: :feature do
   feature 'signing up a user' do
     scenario 'failing with invalid params' do
-      visit "/users/sign_up"
+      visit '/users/sign_up'
       fill_in 'user_first_name', with: 'Abdullah'
       click_on 'Sign up'
-      expect(current_path).to eq("/users")
+      expect(current_path).to eq('/users')
       expect(page).to have_content("Last name can't be blank")
     end
 
     scenario 'successful with valid params' do
       create_user
-      expect(current_path).to eq("/users/1")
+      expect(current_path).to eq('/users/1')
       expect(page).to have_content('Welcome, Abdullah Numan')
     end
   end
@@ -21,7 +21,7 @@ feature 'user authentication features', type: :feature do
     before(:each) do
       create_user
       click_on 'Logout'
-      visit "/users/sign_in"
+      visit '/users/sign_in'
     end
     scenario 'failing with invalid parameters' do
       fill_in 'user_email', with: 'anewman15@hotmail.com'
@@ -33,7 +33,7 @@ feature 'user authentication features', type: :feature do
       fill_in 'user_email', with: 'anewman15@hotmail.com'
       fill_in 'user_password', with: '12345678'
       click_on 'Log in'
-      expect(current_path).to eq("/users/1")
+      expect(current_path).to eq('/users/1')
       expect(page).to have_content('Welcome, Abdullah Numan')
     end
   end
