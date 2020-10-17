@@ -1,0 +1,99 @@
+
+<h1 class="title is-3 has-text-centered">Your Events</h1>
+<div class="container is-fluid">
+  <div class="columns is-centered">
+    <div class="column is-5">
+      <h1 class="title is-4 has-text-centered">Events You've Created</h1>
+      <h1 class="title is-5 has-text-centered">Upcoming</h1>
+      <% if @user_created_upcoming_events %>
+        <% @user_created_upcoming_events.each do |event| %>
+          <div class="box">
+            <article class="media">
+              <div class="media-content">
+                <div class="content">
+                  <h1 class="title is-5"><%= link_to event.event_name, event_path(event) %></h1>
+                  <span>Hosted by: </span><strong class="title is-5">You</strong>
+                  <br>
+                  <span>Date: </span>
+                  <strong><%="#{event.event_date.strftime('%B %d, %Y')}" %></strong><br>
+                  <span>Location: </span>
+                  <strong><%= event.event_location %></strong><br><br>
+                  <%= link_to 'See event details', event_path(event), class: "button is-info is-inverted" %>
+                </div>
+              </div>
+            </article>
+          </div>
+        <% end %>
+      <% end %>
+      <hr>
+      <h1 class="title is-5 has-text-centered">Past</h1>
+      <% if @user_created_events_past %>
+        <% @user_created_events_past.each do |event| %>
+          <div class="box">
+            <article class="media">
+              <div class="media-content">
+                <div class="content">
+                  <h1 class="title is-5"><%= link_to event.event_name, event_path(event) %></h1>
+                  <span>Hosted by: </span><strong class="title is-5">You</strong>
+                  <br>
+                  <span>Date: </span>
+                  <strong><%="#{event.event_date.strftime('%B %d, %Y')}" %></strong><br>
+                  <span>Location: </span>
+                  <strong><%= event.event_location %></strong><br><br>
+                  <%= link_to 'See event details', event_path(event), class: "button is-info is-inverted" %>
+                </div>
+              </div>
+            </article>
+          </div>
+        <% end %>
+      <% end %>
+      <hr>
+    </div>
+
+    <div class="column is-5">
+      <h1 class="title is-4 has-text-centered">Attending/Attended Events</h1>
+      <h1 class="title is-5 has-text-centered">Upcoming</h1>
+      <% if @user_attended_events_upcoming %>
+        <% @user_attended_events_upcoming.each do |event| %>
+          <div class="box">
+            <article class="media">
+              <div class="media-content">
+                <div class="content">
+                  <h1 class="title is-5"><%= link_to event.event_name, event_path(event) %></h1>
+                  <span>Hosted by: </span><strong class="title is-5"> <%= "#{event.creator.first_name} #{event.creator.last_name}" %> </strong>
+                  <br>
+                  <span>Date: </span>
+                  <strong><%="#{event.event_date.strftime('%B %d, %Y')}" %></strong><br>
+                  <span>Location: </span>
+                  <strong><%= event.event_location %></strong><br><br>
+                  <%= link_to 'See event details', event_path(event), class: "button is-info is-inverted" %>
+                </div>
+              </div>
+            </article>
+          </div>
+        <% end %>
+      <% end %>
+      <h1 class="title is-5 has-text-centered">Past</h1>
+      <% if @user_attended_events_past %>
+        <% @user_attended_events_past.each do |event| %>
+          <div class="box">
+            <article class="media">
+              <div class="media-content">
+                <div class="content">
+                  <h1 class="title is-5"><%= link_to event.event_name, event_path(event) %></h1>
+                  <span>Hosted by: </span><strong class="title is-5">You</strong>
+                  <br>
+                  <span>Date: </span>
+                  <strong><%="#{event.event_date.strftime('%B %d, %Y')}" %></strong><br>
+                  <span>Location: </span>
+                  <strong><%= event.event_location %></strong><br><br>
+                  <%= link_to 'See event details', event_path(event), class: "button is-info is-inverted" %>
+                </div>
+              </div>
+            </article>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
