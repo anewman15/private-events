@@ -1,0 +1,38 @@
+<div class="columns is-centered">
+  <div class="column is-half">
+    <div class="box">
+      <article class="media">
+        <div class="media-content">
+          <div class="content">
+            <h1 class="title is-3"><%= "#{@event.event_name}" %></h1>
+            <strong>Hosted by:</strong> <span class="title is-5"> <%= "#{@event.creator.first_name} #{@event.creator.last_name}" %> </span>
+            <br>
+            <span>Date:</span>
+            <strong class="title is-6"> <%="#{@event.event_date.strftime('%B %d, %Y')}"%> </strong>
+            <span>at</span>
+            <strong class="title is-6"> <%="#{@event.event_date.strftime('%I:%M%p')}"%> </strong>
+            <br>
+            <span>Location:</span>
+            <strong class="ttile is-6"> <%= "#{@event.event_location}"%> </strong>
+            <br>
+            <br>
+            <strong>Event Description:</strong>
+            <div class="content"> <%= @event.description %> </div>
+            <br>
+            <h4 class="ttile is-5"> Attendees </h4>
+            <strong class="ttile is-6"> <%= "#{@event.attendees.count} people are attending this event"%> </strong>
+            <div class="content">
+              <ol>
+                <% @event.attendees.each do | attendee | %>
+                  <li><%= "#{attendee.first_name} #{attendee.last_name}" %></li>
+                <% end %>
+              </ol>
+            </div>
+            <br><br>
+            <%= render 'event_attendings/form'%>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</div>
